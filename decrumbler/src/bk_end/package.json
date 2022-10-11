@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon localserver.js"
+    "start": "concurrently \"npm run server\" \"cd .. && npm start\"",
+    "server": "nodemon localserver.js"
   },
   "keywords": [],
   "author": "",
