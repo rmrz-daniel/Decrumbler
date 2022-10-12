@@ -6,7 +6,7 @@ const DisplaySubnet = (props) => {
     //Fetch data from database
     useEffect(() => {
         async function getSubnets() {
-            const response = await fetch("http://localhost:5000/testapi"); //find port server is hosted on
+            const response = await fetch("http://localhost:3000/testapi"); //find port server is hosted on
 
             if(!response.ok) {
                 const errMessage = "Sorry, something went wrong";
@@ -25,25 +25,25 @@ const DisplaySubnet = (props) => {
 
     //Display results of fetch
     return (
-        <li>
+        <li className="list">
             <div id="subnet">
                 <div>
-                    {props.testapi.name}
+                    {props.testapi.Name}
                 </div>
                 <div>
-                    {props.testapi.subnet}
+                    {props.testapi.Subnet}
                 </div>
                 <div>
-                    {props.testapi.vlan}
+                    {props.testapi.VLAN}
                 </div>
                 <div>
                     {props.testapi.state}
                 </div>
                 <div>
-                    {props.testapi.gateway}
+                    {props.testapi.GW}
                 </div>
                 <div>
-                    {props.testapi.location}
+                    {props.testapi.Location}
                 </div>
             </div>
         </li>
