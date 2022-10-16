@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import axios from 'axios'
+// import axios from 'axios'
 
 function Login(props) {
     const [userInput, setUserInput] = useState();
@@ -44,7 +44,7 @@ function Login(props) {
             <div className='brand-box'>
                 <img className='logo-img'
                     alt='InHome Logo'
-                    src={require('./img/twocookie_cd.png')}
+                    src={require('../img/twocookie_cd.png')}
                     width={'100px'} />
                 <div className='brand-text'>
                     <h1>Welcome Back!</h1>
