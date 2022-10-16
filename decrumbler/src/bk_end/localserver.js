@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
   
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://127.0.0.1:27017/cookies').then(() => {
+mongoose.connect('mongodb://127.0.0.1/cookies').then(() => {
   console.log('Database successfully connected!')
 },
   error => {
