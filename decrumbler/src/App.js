@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
+import WelcomePage from './components/welcomePage/welcomePage';
 
 function App() {
   return (
-    <div>
-      
+    <div className='buttons'>
+      <WelcomePage />
     </div>
   );
 }
