@@ -1,11 +1,10 @@
 import React from 'react';
-import './App.css';
-import DisplaySubnet from './components/mainView/displaySubnet';
+import WelcomePage from './components/welcomePage/welcomePage';
 
 function App() {
   return (
-    <div>
-      <DisplaySubnet />
+    <div className='buttons'>
+      <WelcomePage />
     </div>
   );
 }

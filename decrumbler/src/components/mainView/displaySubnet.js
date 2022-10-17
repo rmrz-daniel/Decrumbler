@@ -6,7 +6,7 @@ const DisplaySubnet = (props) => {
     //Fetch data from database
     useEffect(() => {
         async function getSubnets() {
-            const response = await fetch("http://localhost:4444/api/test/02-10"); //find port server is hosted on
+            const response = await fetch("http://localhost:3000/api/testapi"); //find port server is hosted on
 
             if(!response.ok) {
                 const errMessage = "Sorry, something went wrong";
