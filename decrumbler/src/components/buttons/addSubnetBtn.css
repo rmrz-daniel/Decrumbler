@@ -1,0 +1,10 @@
+.add button{
+    background-color: #cfb489;
+    color: #44342A;
+    font-family: 'Catamaran', sans-serif;
+    width: 9rem;
+    height: 7rem;
+    font-weight: 700;
+    font-size: 18px;
+    text-align: right;
+}

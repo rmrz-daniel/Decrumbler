@@ -1,0 +1,17 @@
+body {
+    background-color: #fffdf6;
+}
+
+.buttons{
+    display:flex;
+    justify-content: center;
+    margin-top: 20vh;
+}
+
+.buttons :first-child {
+    margin-right: 2vh;
+}
+
+.buttons :last-child {
+    margin-left: 2vh;
+}
