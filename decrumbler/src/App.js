@@ -1,11 +1,15 @@
 import React from 'react';
 import WelcomePage from './components/welcomePage/welcomePage';
+import Login from './components/loginPage/login';
 
 function App() {
   return (
-    <div className='buttons'>
-      <WelcomePage />
-    </div>
+    <>
+      <Login/>
+    </>
+    // <div className='buttons'>
+    //   <WelcomePage />
+    // </div>
   );
 }
 
