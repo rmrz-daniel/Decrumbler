@@ -1,17 +1,17 @@
 import React from 'react';
-import PingIp from './components/ping/pingIp';
+import './App.css';
 import WelcomePage from './components/welcomePage/welcomePage';
+import DisplayPing from './components/mainView/displayPing';
+// import Login from './components/Login';
+
 
 function App() {
-  const performPing = (ping) => {
-    
-  }
-  return (
-    <div className='buttons'>
-      <WelcomePage />
-      <PingIp onPingIp={performPing} />
-    </div>
-  );
+   return(
+     <div>
+                <WelcomePage />
+                <DisplayPing />
+        </div>
+    );
 }
 
 export default App;

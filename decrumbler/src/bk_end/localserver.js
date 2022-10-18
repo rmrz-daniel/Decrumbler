@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
   
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27017/cookies').then(() => {
+mongoose.connect('mongodb://127.0.0.1/cookies').then(() => {
   console.log('Database successfully connected!')
 },
   error => {
@@ -26,9 +26,10 @@ app.use(
   }
 );
 
-app.listen(process.env.PORT ||
-  4444, () => {
-      console.log("server is running + ");
+const PORT = process.env.PORT || 4444;
+
+app.listen(PORT, () => {
+      console.log(`server is running on ${PORT}`);
 });
 
 app.use(function (err, req, res, next) {
