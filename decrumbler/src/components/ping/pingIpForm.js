@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-// import "./x.css";
+import "./pingForm.css";
 
 const PingIpForm = (props) => {
     const[newIp, setNewIp] = useState("");
@@ -28,7 +28,7 @@ const PingIpForm = (props) => {
                 <input type="text" value={newIp} onChange={ipHandler}/>
             </div>
             <div className="newOrder-actions">
-                <button type="submit">Ping</button>
+                <button type="submit" className="btn">Ping</button>
             </div>
         </form>
     );
