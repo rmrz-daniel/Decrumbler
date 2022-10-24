@@ -4,7 +4,14 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+
+    extend: {
+      colors:{
+        'cookie-white' : '#FFFDF6',
+        'cookie-brown' : '#44342A',
+        'cookie-hazel' : '#BB9457'
+      }
+    },
   },
   plugins: [],
 }
