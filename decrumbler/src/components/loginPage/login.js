@@ -1,45 +1,48 @@
-import React from 'react'
+import React from 'react';
+import Cookie from './Cookie.png';
+import Monster from './Cookie_Monster.webp';
 
 function Login() {
     return (
-<div className='bg-cookie-white'>
-            <div className="grid grid-cols-2 grid-flow-col gap-0">
-                {/* Left Screen / */}
-                <div className=' h-screen'>
-                    <div className='container mx-auto mt-10  w-[80%] h-[90%]'>
-                        <div className='grid grid-rows-2 m-5 grid-flow-rows gap-10 h-full'>
-                            <div className=''>
-                                <div className='grid grid-rows-2 m-5 grid-flow-rows gap-7 h-[90%]'>
-                                    <div className=''>
-                                        <p>New island? setup</p>
-                                        <p className='font-bold text-4xl pt-[6rem]'>Welcome to your</p>
-                                    </div>
-                                    <div className='font-medium text-2xl'>
-                                        <p>Something inspirational inserted here to motivate you to work!  </p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div className=''>
-                               <div className=' m-5 h-[90%] '>
-                                    <p className='font-medium text-cookie-hazel ml-6 '>username</p>
-                                    <input type='text' className='block p-4 w-full rounded-md border-4 hover:border-cookie-hazel border-cookie-brown bg-cookie-white focus:outline-none'/>
-                                    <p className='font-medium text-cookie-hazel mt-10 ml-6'>password</p>
-                                    <input type='text' className='block p-4 w-full rounded-md border-4 hover:border-cookie-hazel border-cookie-brown bg-cookie-white focus:outline-none'/>
-                                    <button type="button" class="text-white bg-cookie-brown font-medium rounded-md text-2xl w-full p-3 mt-5 text-cookie-hazel">Login</button>
-                                </div> 
+        <div className='bg-cookie-white'>
+            <div className='flex flex-col md:flex-row h-screen items-center'>
+                <div className='flex items-center justify-center w-full md:w-1/2 xl:w-1/3 md:mx-auto px-6 lg:px-16 xl:px-12'>
+                    <div className='w-4/5 h-100'>
+                        <div className='font-bold text-4xl text-black '>Welcome to your
+                            <div className='inline-block pl-4 text-cookie-hazel text-left'>
+                                <h1>Cookie</h1>
+                                <h1>Decrumbler</h1>
                             </div>
                         </div>
+                        <h2 className='mt-6 font-medium text-lg'>Something inspirational inserted here to motivate you to work!</h2>
+                        <form className='mt-10'>
+                            <div>
+                                <label className='block pl-1 text-xl'>Username</label>
+                                <input type='text' className='px-4 py-3 mt-2 w-full rounded-sm border-2 bg-cookie-dull/20 border-cookie-brown hover:bg-cookie-white hover:border-cookie-hazel bg-cookie-white focus:border-cookie-hazel focus:bg-cookie-white focus:outline-none'></input>
+                            </div>
+
+                            <div className='mt-4'>
+                                <label className='block pl-1 text-xl'>Password</label>
+                                <input type='text' className='px-4 py-3 mt-2 w-full rounded-sm border-2 bg-cookie-dull/20 border-cookie-brown hover:bg-cookie-white hover:border-cookie-hazel bg-cookie-white focus:border-cookie-hazel focus:bg-cookie-white focus:outline-none'>
+                                </input>
+                            </div>
+                            
+                            <div className='pt-20'>
+                                <button type='submit' className='text-white bg-cookie-brown font-medium rounded-md text-2xl w-full p-3 mt-5 text-cookie-dull'>Login</button>
+                            </div>
+                        </form>
                     </div>
+                    
                 </div>
-                {/* Right Screen  */}
-                <div className=' h-screen'>
-                    <div className='container mx-auto mt-10 bg-pink-500 w-[80%] h-[95%]'>
-                        <h1 className='ml-auto text-right text-3xl font-bold w-[57%]'>“Something cool here a quote from one of us or something” - C Monster</h1>
-                      
+                <div className='flex items-center justify-center h-[95%] hidden bg-cookie-dull/20 w-1/2 lg:block xl:w-2/3 m-10 rounded-3xl p-20 bg-blob bg-cover overflow-hidden relative'>
+                    {/* <img src={Cookie} className="w-[80%] absolute -bottom-96 -right-96 opacity-75"></img> */}
+                    <div className="w-[80%] h-full hidden 2xl:block m-auto rounded-3xl bg-cookie-white/50 shadow-lg backdrop-blur-sm border-2 border-white overflow-hidden" >
+                        <h1 className=' text-cookie-brown font-bold w-1/2 text-3xl p-20 hidden 2xl:block'>“Something cool here a quote from one of us or something” - C Monster</h1>
+                        <img src={Cookie} className=" absolute -bottom-96 -right-96"></img>
+                        {/* <img src={Monster} className="w-[65%] absolute -bottom-80 -left-46"></img> */}
                     </div>
+                    
                 </div>
-                  {/* <img src={logo} className='absolute top-50 bottom-50 w-[100rem] h-[100rem]' /> */}
             </div>
         </div>
     )
