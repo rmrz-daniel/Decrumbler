@@ -49,16 +49,12 @@ router.put('/test/:collectionName/:_id',
 
 let userSchema = require('../models/user');
 
-router.get('/get-user',
+router.get('/get-user/:Username',
     function (req, res, next) {
 
-        userSchema.find({}).then(
+        userSchema.findOne({Username: req.params.Username}).then(
             function (users) {
-                if (users != null) {
-                    res.send(users);
-                } else {
-                    res.status(404).send('Sorry can\'t find that!')
-                }
+                res.send(users)
             }
         ).catch(next);
     }
@@ -78,16 +74,15 @@ router.post('/create-user',
 router.put('/update-user/:Username',
     function (req, res, next) {
         
-        userSchema.findOne({ username: req.params.Username }).then(
+        userSchema.findOneAndUpdate({Username: req.params.Username}, req.body).then(
             function (users) {
-                if (users != null) {
-                    res.send(users.Password);
-                }
-                else {
-                    res.send(null);
-                }
+                userSchema.findOne({Username: req.params.Username}).then(
+                    function(users) {
+                        res.send(users);
+                    }
+                )
             }
-        )
+        ).catch(next);
     }
 );
 
