@@ -1,8 +1,28 @@
-import React from 'react';
+import React, { useState} from "react";
 import Cookie from './Cookie.png';
 import Monster from './Cookie_Monster.webp';
 
+
 function Login() {
+    
+    const [user, setUser] = useState({
+        Salt: '',
+        Username: '',
+        Password: ''
+    });
+
+    function handleChange(e) {
+        const { value } = e.target;
+        setUser({
+            ...user,
+            [e.target.name]: value
+        });
+    }
+
+    function login(){
+
+    }
+
     return (
         <div className='bg-cookie-white'>
             <div className='flex flex-col md:flex-row h-screen items-center'>
@@ -18,13 +38,14 @@ function Login() {
                         <form className='mt-10'>
                             <div>
                                 <label className='block pl-1 text-xl'>Username</label>
-                                <input type='text' className='px-4 py-3 mt-2 w-full rounded-sm border-2 bg-cookie-dull/20 border-cookie-brown hover:bg-cookie-white hover:border-cookie-hazel bg-cookie-white focus:border-cookie-hazel focus:bg-cookie-white focus:outline-none'></input>
+                                <input type='text' className='px-4 py-3 mt-2 w-full rounded-sm border-2 bg-cookie-dull/20 border-cookie-brown hover:bg-cookie-white hover:border-cookie-hazel bg-cookie-white focus:border-cookie-hazel focus:bg-cookie-white focus:outline-none'
+                                value={user.Username} onChange={handleChange} name='Username'/>
                             </div>
 
                             <div className='mt-4'>
                                 <label className='block pl-1 text-xl'>Password</label>
-                                <input type='text' className='px-4 py-3 mt-2 w-full rounded-sm border-2 bg-cookie-dull/20 border-cookie-brown hover:bg-cookie-white hover:border-cookie-hazel bg-cookie-white focus:border-cookie-hazel focus:bg-cookie-white focus:outline-none'>
-                                </input>
+                                <input type='password' className='px-4 py-3 mt-2 w-full rounded-sm border-2 bg-cookie-dull/20 border-cookie-brown hover:bg-cookie-white hover:border-cookie-hazel bg-cookie-white focus:border-cookie-hazel focus:bg-cookie-white focus:outline-none.'
+                                value={user.Password} onChange={handleChange} name='Password'/>
                             </div>
                             
                             <div className='pt-20'>
