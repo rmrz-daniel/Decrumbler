@@ -1,6 +1,7 @@
 import React, { useState} from "react";
 import Cookie from './Cookie.png';
 import Monster from './Cookie_Monster.webp';
+import axios from "axios";
 
 
 function Login() {
@@ -20,7 +21,25 @@ function Login() {
     }
 
     function login(){
-
+        if(user.Username.replace(/\s/g, '') === ""){
+            return (
+                alert("Alert!")
+            );
+        }else{
+            axios.get(`http://localhost:4444/api/get-user/${user.Username}`).then(
+                function({data}){
+                    if(data.Password === user.Password){
+                        console.log("Match")
+                    } else {
+                        console.log("NO MATCH")
+                    }
+                }
+            ).catch(
+                function(error){
+                    console.log(error)
+                }
+            )
+        }
     }
 
     return (
@@ -35,7 +54,7 @@ function Login() {
                             </div>
                         </div>
                         <h2 className='mt-6 font-medium text-lg'>Something inspirational inserted here to motivate you to work!</h2>
-                        <form className='mt-10'>
+                        <div className='mt-10'>
                             <div>
                                 <label className='block pl-1 text-xl'>Username</label>
                                 <input type='text' className='px-4 py-3 mt-2 w-full rounded-sm border-2 bg-cookie-dull/20 border-cookie-brown hover:bg-cookie-white hover:border-cookie-hazel bg-cookie-white focus:border-cookie-hazel focus:bg-cookie-white focus:outline-none'
@@ -49,9 +68,9 @@ function Login() {
                             </div>
                             
                             <div className='pt-20'>
-                                <button type='submit' className='text-white bg-cookie-brown font-medium rounded-md text-2xl w-full p-3 mt-5 text-cookie-dull'>Login</button>
+                                <button type='button' onClick={login} className='text-white bg-cookie-brown font-medium rounded-md text-2xl w-full p-3 mt-5 text-cookie-dull'>Login</button>
                             </div>
-                        </form>
+                        </div>
                     </div>
                     
                 </div>
