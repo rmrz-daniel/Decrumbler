@@ -40,32 +40,6 @@ function DisplaySubnet() {
 
                     </div>
                     <div className="flex flex-col w-full h-full 2xl:w-11/12 border rounded-t-lg border-cookie-brown items-center">
-                        {/* <div className="flex flex-row w-full bg-cookie-hazel/70 rounded-t-lg h-10 items-center justify-start text-cookie-brown">
-                            <p className="px-14 font-medium text-xl">Name</p>
-                            <p className="px-14 font-medium text-xl">Subnet</p>
-                            <p className="px-14 font-medium text-xl">VLAN</p>
-                            <p className="px-14 font-medium text-xl">VRF</p>
-                            <p className="px-14 font-medium text-xl">GW</p>
-                            <p className="px-14 font-medium text-xl">Location</p>
-                            <p className="px-14 font-medium text-xl">Status</p>
-                            <p className="px-14 font-medium text-xl">Last Pinged</p>
-                        </div>
-                        {subnet.map(
-                            function(res){
-                                return(
-                                    <div className="flex flex-row w-full h-10 items-center justify-start text-cookie-brown">
-                                        <p className="px-14">{res.Name}</p>
-                                        <p className="px-14">Subnet</p>
-                                        <p className="px-14">VLAN</p>
-                                        <p className="px-14">VRF</p>
-                                        <p className="px-14">GW</p>
-                                        <p className="px-14">Location</p>
-                                        <p className="px-14">Status</p>
-                                        <p className="px-14">Last Pinged</p>
-                                    </div>
-                                )    
-                            }
-                        )} */}
                         <table className="table-fixed w-full content-center">
                             <thead className="bg-cookie-hazel/70 h-10 items-center justify-start text-cookie-brown">
                                 <th>Name</th>
