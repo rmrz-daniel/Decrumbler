@@ -1,5 +1,7 @@
 const express = require('express');
+const { db } = require('../models/user');
 const router = express.Router();
+const mongoose = require("mongoose");
 
 router.post('/test/:collectionName',
     function (req, res, next) {
@@ -83,6 +85,16 @@ router.put('/update-user/:Username',
                 )
             }
         ).catch(next);
+    }
+);
+
+router.get('/cols/',
+    function (req, res, next) {
+        mongoose.connect('mongodb://127.0.0.1/cookies', function(err, client){
+            mongoose.connection.db.listCollections().toArray(function(err, col){
+                res.send(col)
+            })
+        })
     }
 );
 

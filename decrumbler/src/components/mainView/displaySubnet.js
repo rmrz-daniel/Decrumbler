@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, {useState, useEffect} from "react";
+import NavWindow from "../sideBar/NavWindow";
 
 function DisplaySubnet() {
 
@@ -22,8 +23,8 @@ function DisplaySubnet() {
     return (
         <div className='bg-cookie-white'>
             <div className='flex flex-row h-screen '>
-                <div className='flex items-center justify-center  w-15  2xl:w-1/6'>
-                    Hello
+                <div className='flex w-15  2xl:w-1/6'>
+                    <NavWindow/>
                 </div>
                 <div className="w-[1px] h-screen bg-cookie-brown"></div>
                 <div className='flex flex-col items-center h-screen  w-full '>
@@ -50,6 +51,7 @@ function DisplaySubnet() {
                                 <th>Location</th>
                                 <th>Status</th>
                                 <th>Last Pinged</th>
+                                <th></th>
                             </thead>
                             <tbody className="mx-auto">
                                 {subnet.map(
@@ -62,8 +64,9 @@ function DisplaySubnet() {
                                                 <td>{res.VRF}</td>
                                                 <td>{res.GW}</td>
                                                 <td>{res.Location}</td>
-                                                <td>{res.State}</td>
+                                                <td>{res.state}</td>
                                                 <td>N/A</td>
+                                                <td><button type='button' className='justify-self-end bg-cookie-brown/20 font-medium rounded-md w-15 px-3 py-2 '>ping</button></td>
                                             </tr>
                                         )    
                                     }
