@@ -19,7 +19,7 @@ function DisplaySubnet() {
                     {
                         col !==undefined
                         ? <Display col={col}/>
-                        : <DisplayCollections/>
+                        : <DisplayCollections col={col}/>
                     }
                     
                 </div>

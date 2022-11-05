@@ -9,75 +9,75 @@ import DisplaySubnet from "./components/mainView/displaySubnet";
 
 function App(props) {
 
-    const [ viewAllSubnet, setViewAllSubnet ] = useState([]); 
+//     const [ viewAllSubnet, setViewAllSubnet ] = useState([]); 
 
-    const [newSubnet, setSubnet] = useState({
-        Name: '',
-        Subnet: '',
-        VLAN: '',
-        state: '',
-        GW: '',
-        VRF: '',
-        Location: ''
-    });
+//     const [newSubnet, setSubnet] = useState({
+//         Name: '',
+//         Subnet: '',
+//         VLAN: '',
+//         state: '',
+//         GW: '',
+//         VRF: '',
+//         Location: ''
+//     });
 
-    const URL = "http://localhost:4444/api/test/:collectionName";
+//     const URL = "http://localhost:4444/api/test/:collectionName";
 
-    useEffect( function(){
-        axios
-            .get(URL)
-            .then(
-                function({data}){
-                    setViewAllSubnet(data);
-            }
-            ).catch(
-                function(error){
-                    console.log("");
-            }
-        )
-    }, []
-);
+//     useEffect( function(){
+//         axios
+//             .get(URL)
+//             .then(
+//                 function({data}){
+//                     setViewAllSubnet(data);
+//             }
+//             ).catch(
+//                 function(error){
+//                     console.log("");
+//             }
+//         )
+//     }, []
+// );
 
-    function handleChange(e) {
-        const { value } = e.target;
-        setSubnet({
-            ...newSubnet,
-            [e.target.name]: value
-        });
-    }
+//     function handleChange(e) {
+//         const { value } = e.target;
+//         setSubnet({
+//             ...newSubnet,
+//             [e.target.name]: value
+//         });
+//     }
 
-    const table = function(){ 
-        return viewAllSubnet.map(function(res, i) {
-            return ( <tr key={i}>
-                <td>{res.Name}</td>
-                <td>{res.Subnet}</td>
-                <td>{res.VLAN}</td>
-                <td>{res.state}</td>
-                <td>{res.GW}</td>
-                <td>{res.VRF}</td>
-                <td>{res.Location}</td>
-              </tr> )
-        })
-    }
+//     const table = function(){ 
+//         return viewAllSubnet.map(function(res, i) {
+//             return ( <tr key={i}>
+//                 <td>{res.Name}</td>
+//                 <td>{res.Subnet}</td>
+//                 <td>{res.VLAN}</td>
+//                 <td>{res.state}</td>
+//                 <td>{res.GW}</td>
+//                 <td>{res.VRF}</td>
+//                 <td>{res.Location}</td>
+//               </tr> )
+//         })
+//     }
 
-    const addNew = async (e) => {
-        //prevent page refresh
-        e.preventDefault();
-        console.log(newSubnet);
-        try {
-            const { data: res } = await axios.post(URL, newSubnet);
+//     const addNew = async (e) => {
+//         //prevent page refresh
+//         e.preventDefault();
+//         console.log(newSubnet);
+//         try {
+//             const { data: res } = await axios.post(URL, newSubnet);
 
-        } catch (err) {
-            if (
-                err.response &&
-                err.response.status >= 400 &&
-                err.response.status <= 500
-            ) {
-                console.log(err.response.data.message);
-            }
-        }
+//         } catch (err) {
+//             if (
+//                 err.response &&
+//                 err.response.status >= 400 &&
+//                 err.response.status <= 500
+//             ) {
+//                 console.log(err.response.data.message);
+//             }
+//         }
 
-    }
+//     }
 
     return (
         <>

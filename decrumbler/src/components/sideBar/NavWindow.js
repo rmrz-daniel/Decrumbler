@@ -39,7 +39,7 @@ function NavWindow({setCol}) {
         <div>
             {subnet.map(function(res) {
                 if(res.name !== "user"){
-                    return(<div className='pl-5 w-full hover:bg-red-500' onClick={() => selectCol(res.name)}>{res.name}</div>)
+                    return(<div key={res.name} className='pl-5 w-full hover:bg-red-500' onClick={() => selectCol(res.name)}>{res.name}</div>)
                 }
                 
             })}
