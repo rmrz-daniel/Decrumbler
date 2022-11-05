@@ -32,22 +32,18 @@ router.get('/test/:collectionName',
         ).catch(next);
     }
 );
-
-router.put('/test/:collectionName/:_id',
+router.put('/test/:collectionName/:Subnet',
     function (req, res, next) {
-        var coll = require('../models/test')(req.params.collectionName);
+       var coll = require('../models/test')(req.params.collectionName); 
 
-        coll.findOneAndUpdate({ _id: req.params._id }, req.body).then(
-            function (subnet) {
-                coll.findOne({ _id: req.params._id }).then(
-                    function (subnet) {
-                        res.send(subnet)
-                    }
-                )
+        coll.findOneAndUpdate({Subnet: req.params.Subnet}, req.body).then(
+            function (data) {
+                res.send(data)
             }
-        )
+        ).catch(next);
     }
-)
+);
+
 
 let userSchema = require('../models/user');
 
@@ -97,6 +93,7 @@ router.get('/cols/',
         })
     }
 );
+
 
 module.exports = router;
 
