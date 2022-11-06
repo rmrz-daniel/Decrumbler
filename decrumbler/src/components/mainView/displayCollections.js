@@ -49,20 +49,29 @@ function DisplayCollections({ col }) {
                         <button type='button' className='hidden md:block justify-self-end bg-cookie-brown/20 font-medium rounded-md w-32 px-4 py-3 my-5'>Export</button>
                     </div>
                 </div>
-                {subnet.map(function (res) {
-                    if (res.name !== "user") {
-                        return (
-                            <>
-                                <div className="pt-8" />
-                                <div className="w-[92%] h-24 rounded-sm border border-cookie-brown shadow-lg">
-                                    <p className="pl-5 pt-3 font-medium text-cookie-hazel text-xl">{res.name}</p>
-                                </div>
-                            </>
+                
+                {
+                    view
+                        ?
+                        subnet.map(function (res) {
+                            if (res.name !== "user") {
+                                return (
+                                    <>
+                                        <div className="pt-8" />
+                                        <div className="w-[92%] h-24 rounded-sm border border-cookie-brown shadow-lg">
+                                            <p className="pl-5 pt-3 font-medium text-cookie-hazel text-xl">{res.name}</p>
+                                        </div>
+                                    </>
 
-                        )
-                    }
+                                )
+                            }
 
-                })}
+                        })
+                        :
+                        <div className="w-[92%] h-[88%] rounded-md border border-cookie-brown shadow-xl">
+                            
+                        </div>
+                }
 
             </div>
         </>
