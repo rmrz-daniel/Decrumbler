@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ListSubnet from './components/ListSubnet';
 import Login from "./components/loginPage/login";
+import SignUpPage from "./components/signUpPage/signUpPage";
 // import Login from './components/Login';
 import DisplaySubnet from "./components/mainView/displaySubnet";
 
@@ -80,9 +81,10 @@ function App(props) {
 //     }
 
     return (
-        <>
-            <DisplaySubnet/>
+        <>   
+            <DisplaySubnet />
             {/* <Login/> */}
+            {/* <SignUpPage/> */}
         </>
         // <div className="App">
         //     <p>Test</p>
