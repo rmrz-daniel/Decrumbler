@@ -1,13 +1,15 @@
 // import './App.css';
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-import ListSubnet from './components/ListSubnet';
-import Login from "./components/loginPage/login";
+// import axios from "axios";
+// import ListSubnet from './components/ListSubnet';
+// import Login from "./components/loginPage/login";
+// import IpScanBtn from "./components/buttons/ipScanBtn";
 // import Login from './components/Login';
-import DisplaySubnet from "./components/mainView/displaySubnet";
+// import DisplaySubnet from "./components/mainView/displaySubnet";
+import IpFunction from "./components/functions/ipFunction";
 
 
-function App(props) {
+function App() {
 
 //     const [ viewAllSubnet, setViewAllSubnet ] = useState([]); 
 
@@ -79,11 +81,12 @@ function App(props) {
 
 //     }
 
-    return (
-        <>
-            <DisplaySubnet/>
-            {/* <Login/> */}
-        </>
+    // return (
+    //     <>
+    //         <IpScanBtn onClick={props.functionLoader}/>
+    //         <DisplaySubnet/>
+    //         {/* <Login/> */}
+    //     </>
         // <div className="App">
         //     <p>Test</p>
         //     <form onSubmit={addNew}>
@@ -132,6 +135,19 @@ function App(props) {
         //             </tbody>
         //         </table>
         // </div>
+    // );
+
+    const [display, setdisplay] = useState(false);
+
+    const functionLoader = () => {
+        setdisplay(true);
+    }
+
+    return (
+        <div>
+            {!display && <button onClick={functionLoader}>IP <br></br> Scan</button>}
+            {display && <IpFunction/>}
+        </div>       
     );
 }
 

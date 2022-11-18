@@ -1,10 +1,11 @@
-import React, {useEffect, useState} from "react";
+import React from "react";
 import "./ipScanBtn.css";
 
 const IpScanBtn = () => {
+
     return(
         <div className="scan">
-            <button>IP <br></br> Scan</button>
+            <button type="button">IP <br></br> Scan</button>
         </div>
     );
 }
