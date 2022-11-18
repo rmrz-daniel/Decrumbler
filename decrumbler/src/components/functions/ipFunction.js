@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {rout} from "../../bk_end/api/pingapi";
 // import IpScanBtn from "../buttons/ipScanBtn";
 // import "./ipScanBtn.css";
 
@@ -16,23 +17,11 @@ const IpFunction = () => {
       const pingHandler = (event) => {
         //to prevent page reload on submit event
         event.preventDefault();
+        const ip = newIp;
+        rout.get(ip);
 
-        const data = {
-            cmd: 'ping',
-            param: getIp
-        };
-
-        if (socket.readyState === WebSocket.OPEN) {
-            socket.send(JSON.stringify(data));
-        }
-
-        socket.addEventListener('message', e => {
-            let line = document.createElement('div');
-            line.innerText = e.data.toString();
-            document.body.appendChild(line);
-        });
-
-        setNewIp("");
+        console.log(rout.get(ip))
+        // setNewIp("");
     }    
 
     return(

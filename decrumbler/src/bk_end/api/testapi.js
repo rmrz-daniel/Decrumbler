@@ -32,6 +32,7 @@ router.get('/test/:collectionName',
         ).catch(next);
     }
 );
+
 router.put('/test/:collectionName/:Subnet',
     function (req, res, next) {
        var coll = require('../models/test')(req.params.collectionName); 
@@ -43,7 +44,6 @@ router.put('/test/:collectionName/:Subnet',
         ).catch(next);
     }
 );
-
 
 let userSchema = require('../models/user');
 
