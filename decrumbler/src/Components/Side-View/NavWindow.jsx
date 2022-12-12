@@ -2,6 +2,13 @@ import logo from './logo.png'
 import React, { useState, useEffect } from "react";
 import { db } from '../../db';
 import { useLiveQuery } from "dexie-react-hooks";
+
+/**
+ * Represents the React.js component containing the functions for swapping the active user interaction.
+ * @param {*} setCol Determines active state of the view fields UI.
+ * @param {*} setActiveAdd Determines the active state of the add subnet UI.
+ * @returns The UI component for user feature navigation.
+ */
 function NavWindow({ setCol, setActiveAdd }) {
 
     const collections = useLiveQuery(() => db.subnet

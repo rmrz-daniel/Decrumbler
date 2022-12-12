@@ -3,6 +3,10 @@ import Cookie from './Cookie.png';
 import Monster from './Cookie_Monster.webp';
 
 
+/**
+ * Represents the React.js component containing the login functionality.
+ * @returns The UI component for user login.
+ */
 function Login() {
     
     const [user, setUser] = useState({

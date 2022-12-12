@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Components/Login-Page/login.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Components/Login-Page/login.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState} from "react";
+import Cookie from './Cookie.png';
+import Monster from './Cookie_Monster.webp';
+
+
+/**
+ * Represents the React.js component containing the login functionality.
+ * @returns The UI component for user login.
+ */
+function Login() {
+    
+    const [user, setUser] = useState({
+        Salt: '',
+        Username: '',
+        Password: ''
+    });
+
+    function handleChange(e) {
+        const { value } = e.target;
+        setUser({
+            ...user,
+            [e.target.name]: value
+        });
+    }
+
+    // function login(){
+    //     if(user.Username.replace(/\s/g, '') === ""){
+    //         return (
+    //             alert("Alert!")
+    //         );
+    //     }else{
+    //         axios.get(`http://localhost:4444/api/get-user/${user.Username}`).then(
+    //             function({data}){
+    //                 if(data.Password === user.Password){
+    //                     console.log("Match")
+    //                 } else {
+    //                     console.log("NO MATCH")
+    //                 }
+    //             }
+    //         ).catch(
+    //             function(error){
+    //                 console.log(error)
+    //             }
+    //         )
+    //     }
+    // }
+
+    return (
+        &lt;div className='bg-cookie-white'>
+            &lt;div className='flex flex-col md:flex-row h-screen items-center'>
+                &lt;div className='flex items-center justify-center w-full md:w-1/2 xl:w-1/3 md:mx-auto px-6 lg:px-16 xl:px-12'>
+                    &lt;div className='w-4/5 h-100'>
+                        &lt;div className='font-bold text-4xl text-black '>Welcome to your
+                            &lt;div className='inline-block pl-4 text-cookie-hazel text-left'>
+                                &lt;h1>Cookie&lt;/h1>
+                                &lt;h1>Decrumbler&lt;/h1>
+                            &lt;/div>
+                        &lt;/div>
+                        &lt;h2 className='mt-6 font-medium text-lg'>Something inspirational inserted here to motivate you to work!&lt;/h2>
+                        &lt;div className='mt-10'>
+                            &lt;div>
+                                &lt;label className='block pl-1 text-xl'>Username&lt;/label>
+                                &lt;input type='text' className='px-4 py-3 mt-2 w-full rounded-sm border-2 bg-cookie-dull/20 border-cookie-brown hover:bg-cookie-white hover:border-cookie-hazel bg-cookie-white focus:border-cookie-hazel focus:bg-cookie-white focus:outline-none'
+                                value={user.Username} onChange={handleChange} name='Username'/>
+                            &lt;/div>
+
+                            &lt;div className='mt-4'>
+                                &lt;label className='block pl-1 text-xl'>Password&lt;/label>
+                                &lt;input type='password' className='px-4 py-3 mt-2 w-full rounded-sm border-2 bg-cookie-dull/20 border-cookie-brown hover:bg-cookie-white hover:border-cookie-hazel bg-cookie-white focus:border-cookie-hazel focus:bg-cookie-white focus:outline-none.'
+                                value={user.Password} onChange={handleChange} name='Password'/>
+                            &lt;/div>
+                            
+                            &lt;div className='pt-20'>
+                                &lt;button type='button' className='text-white bg-cookie-brown font-medium rounded-md text-2xl w-full p-3 mt-5 text-cookie-dull'>Login&lt;/button>
+                            &lt;/div>
+                        &lt;/div>
+                    &lt;/div>
+                    
+                &lt;/div>
+                &lt;div className='flex items-center justify-center h-[95%] hidden bg-cookie-dull/20 w-1/2 lg:block xl:w-2/3 m-10 rounded-3xl p-20 bg-blob bg-cover overflow-hidden relative'>
+                    {/* &lt;img src={Cookie} className="w-[80%] absolute -bottom-96 -right-96 opacity-75">&lt;/img> */}
+                    &lt;div className="w-[80%] h-full hidden 2xl:block m-auto rounded-3xl bg-cookie-white/50 shadow-lg backdrop-blur-sm border-2 border-white overflow-hidden" >
+                        &lt;h1 className=' text-cookie-brown font-bold w-1/2 text-3xl p-20 hidden 2xl:block'>“Something cool here a quote from one of us or something” - C Monster&lt;/h1>
+                        &lt;img src={Cookie} className=" absolute -bottom-96 -right-96">&lt;/img>
+                        {/* &lt;img src={Monster} className="w-[65%] absolute -bottom-80 -left-46">&lt;/img> */}
+                    &lt;/div>
+                    
+                &lt;/div>
+            &lt;/div>
+        &lt;/div>
+    )
+}
+
+export default Login</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AddSubnet">AddSubnet</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#Display">Display</a></li><li><a href="global.html#DisplayColl">DisplayColl</a></li><li><a href="global.html#DisplaySubnet">DisplaySubnet</a></li><li><a href="global.html#DraggableBox">DraggableBox</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#NavWindow">NavWindow</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Mon Dec 12 2022 15:45:12 GMT-0700 (Mountain Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

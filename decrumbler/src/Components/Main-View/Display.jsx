@@ -4,6 +4,10 @@ import DisplaySubnet from "./DisplaySubnet";
 import DisplayColl from "./DisplayColl";
 import AddSubnet from "./AddSubnet";
 
+/**
+ * Represents the React.js component containing workspace functionalities for display.
+ * @returns The active UI components for the user to interact with. It always includes the navigation window.
+ */
 function Display() {
 
     const [col, setCol] = useState();

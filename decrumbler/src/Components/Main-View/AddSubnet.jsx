@@ -1,6 +1,10 @@
 import React, {useState, useEffect} from "react";
 import { db } from '../../db';
 
+/**
+ * Represents the React.js component with functionality for system input of additional subnets.
+ * @returns The UI component for users to add subnets to store.
+ */
 function AddSubnet() {
 
     const [newSubnet, setNewSubnet] = useState({

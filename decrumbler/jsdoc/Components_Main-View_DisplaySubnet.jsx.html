@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Components/Main-View/DisplaySubnet.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Components/Main-View/DisplaySubnet.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from "react";
+import { useLiveQuery } from "dexie-react-hooks";
+import { db } from "../../db";
+
+/**
+ * Represents the React.js component which displays subnets and ping functions.
+ * @param {*} col Holds the current subnet model for interaction.
+ * @returns The UI component displaying the subnet collection.
+ */
+function DisplaySubnet({col}) {
+
+    const [subnet, setSubnet] = useState([]);
+
+    useEffect(() =>{
+        db.subnet
+        .where('collection')
+        .equals(col)
+        .toArray(function(data){
+            setSubnet(data)
+        })
+    },[col],[])
+
+    // console.log(subnet)
+    function ping(){
+        fetch('http://localhost:8080/priv-ping-api/2.8.2.8')
+            .then(response => response.json())
+            .then((data) => {
+                console.log(data)
+            })
+    }
+
+    return (
+        &lt;>
+            &lt;div className="flex flex-row w-full bg-cookie-brown text-cookie-white h-10 items-center">
+                &lt;p className="px-5 select-none">{col}&lt;/p>
+            &lt;/div>
+            &lt;div className="flex flex-row w-11/12 justify-start">
+                &lt;div className="px-4 py-3 my-5 w-20 rounded-l-md bg-cookie-brown/20 flex items-center">
+                    &lt;svg className="w-6" clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path d="m15.97 17.031c-1.479 1.238-3.384 1.985-5.461 1.985-4.697 0-8.509-3.812-8.509-8.508s3.812-8.508 8.509-8.508c4.695 0 8.508 3.812 8.508 8.508 0 2.078-.747 3.984-1.985 5.461l4.749 4.75c.146.146.219.338.219.531 0 .587-.537.75-.75.75-.192 0-.384-.073-.531-.22zm-5.461-13.53c-3.868 0-7.007 3.14-7.007 7.007s3.139 7.007 7.007 7.007c3.866 0 7.007-3.14 7.007-7.007s-3.141-7.007-7.007-7.007z" fill-rule="nonzero"/>&lt;/svg>
+                &lt;/div>
+                &lt;input type='text' placeholder="Search and Filter" className='pr-4 py-3 my-5 w-2/5 rounded-r-md  bg-cookie-brown/20 focus:outline-none' />
+                &lt;div className="flex flex-row w-full justify-end">
+                    
+                    {/* &lt;button type='button' className='justify-self-end bg-cookie-brown/20 font-medium rounded-md w-32  px-4 py-3 m-5'>Import&lt;/button> */}
+                    &lt;button type='button' className='justify-self-end bg-cookie-brown/20 font-medium rounded-md w-32 px-4 py-3 my-5'>Export&lt;/button>
+                &lt;/div>
+
+            &lt;/div>
+            &lt;div className="flex flex-col w-full h-full 2xl:w-11/12 border rounded-t-lg border-cookie-brown items-center">
+                &lt;table className="w-full text-center">
+                    &lt;thead className="h-10 text-cookie-brown bg-cookie-hazel/70 select-none">
+                        &lt;tr className="z-10">
+                            &lt;th>Name&lt;/th>
+                            &lt;th>Subnet&lt;/th>
+                            &lt;th>VLAN&lt;/th>
+                            &lt;th>VRF&lt;/th>
+                            &lt;th>GW&lt;/th>
+                            &lt;th>Location&lt;/th>
+                            &lt;th>Status&lt;/th>
+                            &lt;th>Last Pinged&lt;/th>
+                            &lt;th>&lt;/th>
+                        &lt;/tr>
+                    &lt;/thead>
+                    &lt;tbody>
+                        {subnet?.map(
+                            function (subnet) {
+                                return (
+                                    &lt;tr key={subnet.id}>
+                                        &lt;td>{subnet.name}&lt;/td>
+                                        &lt;td>{subnet.subnet}&lt;/td>
+                                        &lt;td>{subnet.vlan}&lt;/td>
+                                        &lt;td>{subnet.vrf}&lt;/td>
+                                        &lt;td>{subnet.gw}&lt;/td>
+                                        &lt;td>{subnet.location}&lt;/td>
+                                        &lt;td>{subnet.state}&lt;/td>
+                                        &lt;td>N/A&lt;/td>
+                                        &lt;td>&lt;button type='button' className='bg-cookie-brown/20 font-medium rounded-md w-15 px-3 py-2' onClick={ping}>ping&lt;/button>&lt;/td>
+                                    &lt;/tr>
+                                )
+                            }
+                        )}
+                    &lt;/tbody>
+                &lt;/table>
+            &lt;/div>
+        &lt;/>
+    )
+}
+
+export default DisplaySubnet</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AddSubnet">AddSubnet</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#Display">Display</a></li><li><a href="global.html#DisplayColl">DisplayColl</a></li><li><a href="global.html#DisplaySubnet">DisplaySubnet</a></li><li><a href="global.html#DraggableBox">DraggableBox</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#NavWindow">NavWindow</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Mon Dec 12 2022 15:45:12 GMT-0700 (Mountain Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

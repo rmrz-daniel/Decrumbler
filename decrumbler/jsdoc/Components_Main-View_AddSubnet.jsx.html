@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Components/Main-View/AddSubnet.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Components/Main-View/AddSubnet.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, {useState, useEffect} from "react";
+import { db } from '../../db';
+
+/**
+ * Represents the React.js component with functionality for system input of additional subnets.
+ * @returns The UI component for users to add subnets to store.
+ */
+function AddSubnet() {
+
+    const [newSubnet, setNewSubnet] = useState({
+        collection: '',
+        subnet: '',
+        vlan: '',
+        vrf: '',
+        gw: '',
+        location: '',
+        state: '',
+    });
+
+    function handleChange(e) {
+        const { value } = e.target;
+        setNewSubnet({
+            ...newSubnet,
+            [e.target.name]: value
+        });
+    }
+
+
+
+    // async function addFriend() {
+    //     try {
+    //         await db.subnet.add({
+    //             "collection" : "17-34",
+    //             "name": "testname2",
+    //             "subnet": "testsubnet2",
+    //             "vlan": "testvlan2",
+    //             "vrf": "testvrf2",
+    //             "gw": "testgws2",
+    //             "location": "testlocations2",
+    //             "state": "0"
+    //         });
+    //     } catch (error) {
+    //     }
+    // }
+
+    return (
+        &lt;>
+            &lt;div className="flex flex-row w-full bg-cookie-brown text-cookie-white h-10 items-center ">
+                &lt;p className="px-5">Add Subnet&lt;/p>
+            &lt;/div>
+            &lt;div className='p-5'/>
+            &lt;div className="w-full h-full 2xl:w-11/12 border rounded-t-lg border-cookie-brown">
+                &lt;div className="flex flex-col w-full">
+
+                    &lt;div className="p-6"/>
+                    &lt;div className='flex flex-row mt-4 justify-center gap-14'>
+
+                        &lt;div className="flex flex-col w-2/6">
+                            &lt;label className='pl-1 text-lg text-cookie-hazel font-semibold'>Name&lt;/label>
+                            &lt;input type='password' className='px-4 py-3 mt-2 rounded-sm border-2 bg-cookie-dull/20 border-cookie-hazel hover:bg-cookie-white focus:border-cookie-brown/50 focus:bg-cookie-white focus:outline-none'
+                            value={newSubnet.name} onChange={handleChange} name='name'/>
+                        &lt;/div>
+                        &lt;div className="flex flex-col w-[15%]">
+                            &lt;label className='pl-1 text-lg text-cookie-hazel font-semibold'>Subnet&lt;/label>
+                            &lt;input type='password' className='px-4 py-3 mt-2  rounded-sm border-2 bg-cookie-dull/20 border-cookie-hazel hover:bg-cookie-white focus:border-cookie-brown/50 focus:bg-cookie-white focus:outline-none'
+                            value={newSubnet.name} onChange={handleChange} name='name'/>
+                        &lt;/div>
+                        &lt;div className="flex flex-col w-[7%]">
+                            &lt;label className='pl-1 text-lg text-cookie-hazel font-semibold'>VLAN&lt;/label>
+                            &lt;input type='password' className='px-4 py-3 mt-2  rounded-sm border-2 bg-cookie-dull/20 border-cookie-hazel hover:bg-cookie-white focus:border-cookie-brown/50 focus:bg-cookie-white focus:outline-none'
+                            value={newSubnet.name} onChange={handleChange} name='name'/>
+                        &lt;/div>
+                        &lt;div className="flex flex-col w-[12%]">
+                            &lt;label className='pl-1 text-lg text-cookie-hazel font-semibold'>Gateway&lt;/label>
+                            &lt;input type='password' className='px-4 py-3 mt-2  rounded-sm border-2 bg-cookie-dull/20 border-cookie-hazel hover:bg-cookie-white focus:border-cookie-brown/50 focus:bg-cookie-white focus:outline-none'
+                            value={newSubnet.name} onChange={handleChange} name='name'/>
+                        &lt;/div>
+                        &lt;div className="flex flex-col w-[7%]">
+                            &lt;label className='pl-1 text-lg text-cookie-hazel font-semibold'>Status?&lt;/label>
+                            &lt;input type='password' className='px-4 py-3 mt-2  rounded-sm border-2 bg-cookie-dull/20 border-cookie-hazel hover:bg-cookie-white focus:border-cookie-brown/50 focus:bg-cookie-white focus:outline-none'
+                            value={newSubnet.name} onChange={handleChange} name='name'/>
+                        &lt;/div>
+                                        
+                    &lt;/div>
+
+                    &lt;div className="p-6"/>
+                    &lt;div className='flex flex-row mt-4 gap-14 justify-center'>
+
+                        &lt;div className="flex flex-col w-[10%]">
+                            &lt;label className='pl-1 text-lg text-cookie-hazel font-semibold'>Fields&lt;/label>
+                            &lt;input type='password' className='px-4 py-3 mt-2 rounded-sm border-2 bg-cookie-dull/20 border-cookie-hazel hover:bg-cookie-white focus:border-cookie-brown/50 focus:bg-cookie-white focus:outline-none'
+                            value={newSubnet.name} onChange={handleChange} name='name'/>
+                        &lt;/div>
+                        &lt;div className="flex flex-col w-[10%]">
+                            &lt;label className='pl-1 text-lg text-cookie-hazel font-semibold'>VRF&lt;/label>
+                            &lt;input type='password' className='px-4 py-3 mt-2  rounded-sm border-2 bg-cookie-dull/20 border-cookie-hazel hover:bg-cookie-white focus:border-cookie-brown/50 focus:bg-cookie-white focus:outline-none'
+                            value={newSubnet.name} onChange={handleChange} name='name'/>
+                        &lt;/div>
+                        &lt;div className="flex flex-col w-1/6">
+                            &lt;label className='pl-1 text-lg text-cookie-hazel font-semibold'>Location&lt;/label>
+                            &lt;input type='password' className='px-4 py-3 mt-2  rounded-sm border-2 bg-cookie-dull/20 border-cookie-hazel hover:bg-cookie-white focus:border-cookie-brown/50 focus:bg-cookie-white focus:outline-none'
+                            value={newSubnet.name} onChange={handleChange} name='name'/>
+                        &lt;/div>
+                        &lt;div className="w-[41%]"/>
+                                        
+                    &lt;/div>
+                    &lt;div className="flex flex-row mt-4 justify-end">
+                        &lt;button type='button' className='text-white bg-cookie-brown font-normal rounded-md text-sm w-[10%] p-3 mt-5 text-cookie-white hover:bg-cookie-hazel'>Save Subnet&lt;/button>
+                    &lt;/div>
+
+                &lt;/div>
+
+            &lt;/div>
+        &lt;/>
+    )
+}
+
+export default AddSubnet</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AddSubnet">AddSubnet</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#Display">Display</a></li><li><a href="global.html#DisplayColl">DisplayColl</a></li><li><a href="global.html#DisplaySubnet">DisplaySubnet</a></li><li><a href="global.html#DraggableBox">DraggableBox</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#NavWindow">NavWindow</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Mon Dec 12 2022 15:45:12 GMT-0700 (Mountain Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

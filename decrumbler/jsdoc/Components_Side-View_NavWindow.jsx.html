@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: Components/Side-View/NavWindow.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: Components/Side-View/NavWindow.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import logo from './logo.png'
+import React, { useState, useEffect } from "react";
+import { db } from '../../db';
+import { useLiveQuery } from "dexie-react-hooks";
+
+/**
+ * Represents the React.js component containing the functions for swapping the active user interaction.
+ * @param {*} setCol Determines active state of the view fields UI.
+ * @param {*} setActiveAdd Determines the active state of the add subnet UI.
+ * @returns The UI component for user feature navigation.
+ */
+function NavWindow({ setCol, setActiveAdd }) {
+
+    const collections = useLiveQuery(() => db.subnet
+        .orderBy('collection')
+        .uniqueKeys()
+    );
+
+    return (
+        &lt;div className='flex flex-col w-full hidden 2xl:block'>
+            &lt;div className='flex flex-row w-full h-[10%] items-center justify-center'>
+                &lt;div className='flex flex-col text-2xl font-black text-cookie-hazel 2xl:text-3xl select-none'>
+                    &lt;p>Cookie &lt;/p>
+                    &lt;p>Decrumbler&lt;/p>
+                &lt;/div>
+                &lt;img src={logo} className="w-1/4 ml-5 hidden 2xl:block">&lt;/img>
+            &lt;/div>
+            &lt;div className='w-full bg-cookie-brown hover:bg-cookie-hazel select-none cursor-pointer'>
+                &lt;h1 className='p-2 font-light text-cookie-white ' onClick={() => {setCol(undefined); setActiveAdd(false)}} >View Fields&lt;/h1>
+            &lt;/div>
+            &lt;div className='h-[70vh] overflow-hidden'>
+                {
+                collections?.map(
+                    function (res) {
+                        return (
+                            &lt;div className='flex flex-row group select-none cursor-pointer'>
+                                &lt;div className='px-3 group-hover:bg-cookie-hazel'/>
+                                &lt;svg className='w-5 fill-cookie-brown group-hover:fill-cookie-white group-hover:bg-cookie-hazel' clip-rule="evenodd" fill-rule="evenodd" stroke-linejoin="round" stroke-miterlimit="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">&lt;path d="m10.211 7.155c-.141-.108-.3-.157-.456-.157-.389 0-.755.306-.755.749v8.501c0 .445.367.75.755.75.157 0 .316-.05.457-.159 1.554-1.203 4.199-3.252 5.498-4.258.184-.142.29-.36.29-.592 0-.23-.107-.449-.291-.591-1.299-1.002-3.945-3.044-5.498-4.243z"/>&lt;/svg>
+                                &lt;div key={res} className='w-full group-hover:bg-cookie-hazel text-cookie-brown group-hover:text-cookie-white' onClick={() => {setCol(res); setActiveAdd(false) } }>{res}&lt;/div>
+                            &lt;/div>
+                        )
+                    }
+                )
+                }
+            &lt;/div>
+            &lt;div className='flex flex-col items-center'>
+                &lt;div className='flex flex-row w-6/12 justify-center gap-x-2 group select-none cursor-pointer' onClick={() => setActiveAdd(true)}>
+                    &lt;svg className='w-5 group-hover:fill-cookie-hazel fill-cookie-brown' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">&lt;path d="M24 10h-10v-10h-4v10h-10v4h10v10h4v-10h10z"/>&lt;/svg>
+                    &lt;p className='group-hover:text-cookie-hazel text-cookie-brown'>Add Subnet&lt;/p>
+                &lt;/div>
+                &lt;div className='p-3'/>
+                &lt;button type='button' className='text-white bg-cookie-brown font-medium rounded-md text-2xl w-8/12 p-1 text-cookie-dull'>Logout&lt;/button>
+            &lt;/div>
+
+            
+
+        &lt;/div>
+    )
+}
+
+export default NavWindow</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#AddSubnet">AddSubnet</a></li><li><a href="global.html#App">App</a></li><li><a href="global.html#Display">Display</a></li><li><a href="global.html#DisplayColl">DisplayColl</a></li><li><a href="global.html#DisplaySubnet">DisplaySubnet</a></li><li><a href="global.html#DraggableBox">DraggableBox</a></li><li><a href="global.html#Login">Login</a></li><li><a href="global.html#NavWindow">NavWindow</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.0</a> on Mon Dec 12 2022 15:45:12 GMT-0700 (Mountain Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

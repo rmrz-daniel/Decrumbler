@@ -7,6 +7,14 @@ import classNames from "classnames";
 import { useLiveQuery } from "dexie-react-hooks";
 import { db } from "../../db";
 
+/**
+ * Represents the data model of a subnet for UI interaction.
+ * @param {*} id Identifying increment of a unique subnet.
+ * @param {*} name Subnet name.
+ * @param {*} col Holds the current subnet model for interaction.
+ * @param {*} state Controls the color of a subnet UI model.
+ * @returns The draggable subnet-object visual model.
+ */
 const DraggableBox = ({ id, name, col, state }) => {
     const updateXarrow = useXarrow();
     return (
@@ -33,6 +41,12 @@ const DraggableBox = ({ id, name, col, state }) => {
     );
 };
 
+/**
+ * Represents the interactive subnet model.
+ * @param {*} col Holds the current subnet model for interaction.
+ * @param {*} setCol Determines active state of the view fields UI.
+ * @returns The UI component with dragging interaction for the user.
+ */
 function DisplayColl({col, setCol}) {
 
     const [view, setView] = useState(true);

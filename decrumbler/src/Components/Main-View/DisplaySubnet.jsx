@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useLiveQuery } from "dexie-react-hooks";
 import { db } from "../../db";
 
+/**
+ * Represents the React.js component which displays subnets and ping functions.
+ * @param {*} col Holds the current subnet model for interaction.
+ * @returns The UI component displaying the subnet collection.
+ */
 function DisplaySubnet({col}) {
 
     const [subnet, setSubnet] = useState([]);
